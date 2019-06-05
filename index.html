@@ -61,8 +61,8 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#setup">Setup</a></li>
                     <li><a href="#rules">Rules</a></li>
-                    <li><a href="#victory">Victory</a></li>
                     <li><a href="#clearing">Clearing priority</a></li>
+                    <li><a href="#victory">Victory</a></li>
                     <li><a href="#items">Items</a></li>
                     <li><a href="#buildings">Buildings</a></li>
                     <li><a href="#turn">Turn</a></li>
@@ -81,8 +81,8 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="#setup">Setup</a></li>
             <li><a href="#rules">Rules</a></li>
-            <li><a href="#victory">Victory</a></li>
             <li><a href="#clearing">Clearing</a></li>
+            <li><a href="#victory">Victory</a></li>
             <li><a href="#items">Items</a></li>
             <li><a href="#buildings">Buildings</a></li>
             <li><a href="#turn">Turn</a></li>
@@ -92,9 +92,9 @@
             <div class="card-panel">
                 <h5><a name="setup"></a>Setup (A)</h5>
                 <ol>
-                    <li>Place the keep token in a random corner clearing.</li>
+                    <li>Place the keep token in a random corner clearing. <small>Randomly selected: <span id="startingClearing"></span> corner clearing.</small></li>
                     <li>Place 1 warrior in each clearing, except the corner clearing diagonally opposite from the keep. Add an additional warrior to the clearing with the keep token. <small>Place 12 warriors in total.</small></li>
-                    <li>Place 1 sawmill, workshop and recruiter randomly among the clearings adjacent to the keep token. <small>Place 3 in total, 1 per clearing.</small></li>
+                    <li>Place 1 sawmill, workshop and recruiter randomly among the clearings adjacent to the keep token. <small>Place 3 in total, 1 per clearing. Randomly selected: Place <span id="startingBuildings"></span> in clearings adjacent to the keep token following clearing order.</small></li>
                 </ol>
                 <h6>Difficulty</h6>
                     <ul class="tabs">
@@ -173,12 +173,12 @@
                         <img id="forest" src="images/forest.png" style="max-width: 100%">
                         <img id="winter" src="images/winter.png" style="max-width: 100%">
 
-                        <h5><a name="victory"></a>Victory points</h5>
+                        <h5><a name="victory"></a>Victory Points</h5>
                         <input id="bag" type="number" min="0" value="0">
                         <label for="bag">Points</label>
                     </div>
                     <div class="col m8">
-                        <h5  name="items">Items for sale</h5>
+                        <h5  name="items">Items For Sale</h5>
                         <p><small>Vagabond can give cards to take these items</small></p>
                         <form>
                             <div class="row">
@@ -416,11 +416,10 @@
                             <li>
                                 <b>Battle</b> in clearings matching order card.
                             </li>
-                            <li><span id="easy"><b>Recruit</b> 3 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 1 warrior in the clearing with the 2<sup>nd</sup> lowest priority.</span>
-                                <span id="norm"><b>Recruit</b> 4 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in each of the 2 clearings you rule with lowest priority.</span>
-                                <span id="normal"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 3 warriors in the clearing you rule with lowest priority and 2 warriors in the clearing with the the 2<sup>nd</sup> lowest priority.</span>
-                                <span id="hard"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 3 warrior in the clearing with the 2<sup>nd</sup> lowest priority.</span>
-                                <br> Gain +1 for every 2 warriors that could not be recruited.
+                            <li><span id="easy"><b>Recruit</b> 3 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 1 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
+                                <span id="norm"><b>Recruit</b> 4 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in each of the 2 clearings you rule with lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
+                                <span id="normal"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 3 warriors in the clearing you rule with lowest priority and 2 warriors in the clearing with the the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
+                                <span id="hard"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 3 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
                             </li>
                             <li>
                                 <b>Build</b> 1 building matching order card in a clearing you rule. <br>
@@ -459,7 +458,24 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+        function shuffle(a) {
+            var j, x, i;
+            for (i = a.length - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = a[i];
+                a[i] = a[j];
+                a[j] = x;
+            }
+            return a;
+        }
         $(document).ready(function(){
+            var clearings = ['Top left', 'Top right', 'Bottom left', 'Bottom right'];
+            var r = Math.floor(Math.random()*4);
+            $('#startingClearing').text(clearings[r] + '');
+
+            var buildings = ['recruiter', 'sawmill', 'workshop'];
+            shuffle(buildings);
+            $('#startingBuildings').text(buildings[0] + ', ' + buildings[1] + ' and ' + buildings[2] + ' ');
             $('#hardExtra').hide();
             $('.tabs').tabs();
             $('.tabs').click(function(){
