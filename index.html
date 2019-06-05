@@ -96,51 +96,41 @@
                     <li>Place 1 warrior in each clearing, except the corner clearing diagonally opposite from the keep. Add an additional warrior to the clearing with the keep token. <small>Place 12 warriors in total.</small></li>
                     <li>Place 1 sawmill, workshop and recruiter randomly among the clearings adjacent to the keep token. <small>Place 3 in total, 1 per clearing.</small></li>
                 </ol>
+                <h6>Difficulty</h6>
+                    <ul class="tabs">
+                        <li class="tab col"><a href="#easy" class="active">Easy</a></li>
+                        <li class="tab col"><a href="#norm" class="active">Normal</a></li>
+                        <li class="tab col"><a href="#normal">Challenging</a></li>
+                        <li class="tab col"><a id="hardTab" href="#hard">Nightmare</a></li>
+                    </ul>
+                <h6>Traits</h6>
                 <div class="row">
                     <div class="col">
-                        <h6>Difficulty</h6>
-                        <ul class="tabs">
-                            <li class="tab col"><a href="#easy" class="active">Easy</a></li>
-                            <li class="tab col"><a href="#norm" class="active">Normal</a></li>
-                            <li class="tab col"><a href="#normal">Challenging</a></li>
-                            <li class="tab col"><a id="hardTab" href="#hard">Nightmare</a></li>
-                        </ul>
+                        <label>
+                            <input type="checkbox" class="filled-in" value="blitz" />
+                            <span>Blitz</span>
+                        </label>
                     </div>
                     <div class="col">
-                        <h6>Map</h6>
-                        <ul class="tabs">
-                            <li class="tab col"><a href="#forest" class="active">Forest</a></li>
-                            <li class="tab col"><a href="#winter" class="active">Winter</a></li>
-                        </ul>
+                        <label>
+                            <input type="checkbox" class="filled-in" value="fortified"/>
+                            <span>Fortified</span>
+                        </label>
                     </div>
                     <div class="col">
-                        <h6>Traits</h6>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" value="blitz" />
-                                <span>Blitz</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" value="fortified"/>
-                                <span>Fortified</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" value="ironwill"/>
-                                <span>Iron Will</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" value="hospitals"/>
-                                <span>Hospitals</span>
-                            </label>
-                        </p>
+                        <label>
+                            <input type="checkbox" class="filled-in" value="ironwill"/>
+                            <span>Iron Will</span>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label>
+                            <input type="checkbox" class="filled-in" value="hospitals"/>
+                            <span>Hospitals</span>
+                        </label>
                     </div>
                 </div>
+
             </div>
 
             <div class="card-panel">
@@ -175,6 +165,10 @@
                 <div class="row">
                     <div class="col m4">
                         <h5><a name="clearing"></a>Clearing Priority</h5>
+                        <ul class="tabs">
+                            <li class="tab col"><a href="#forest" class="active">Forest</a></li>
+                            <li class="tab col"><a href="#winter" class="active">Winter</a></li>
+                        </ul>
                         <p><small>Highest priority is 1, lowest priority is 12.</small></p>
                         <img id="forest" src="images/forest.png" style="max-width: 100%">
                         <img id="winter" src="images/winter.png" style="max-width: 100%">
@@ -477,13 +471,11 @@
             });
 
             $('.filled-in').change(function() {
+                var t = $(this).val();
                 if($(this).is(":checked")) {
-                    var t = $(this).val();
-                    if($('#' + t).is(":visible")){
-                        $('#' + t).hide();
-                    } else {
-                        $('#' + t).show();
-                    }
+                    $('#' + t).show();
+                } else {
+                    $('#' + t).hide();
                 }
             });
             $("#blitz").hide();
