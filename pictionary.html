@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+        <div class="container">
+            <table>
+                    <tr class="blue">
+                        <th>Persona, Lugar, Animal</th>
+                        <td id="person"></td>
+                        <td id="person2"></td>
+                    </tr>
+                    <tr class="yellow">
+                        <th>Objeto</th>
+                        <td id="object"></td>
+                        <td id="object2"></td>
+                    </tr>
+                    <tr class="orange">
+                        <th>Acción</th>
+                        <td id="action"></td>
+                        <td id="action2"></td>
+                    </tr>
+                    <tr class="green">
+                        <th>Difícil</th>
+                        <td id="hard"></td>
+                        <td id="hard2"></td>
+                    </tr>
+                    <tr class="red">
+                        <th>Cultura Popular</th>
+                        <td id="pop"></td>
+                        <td id="pop2"></td>
+                    </tr>
+            </table>
+        </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function shuffle(a) {
+            var j, x, i;
+            for (i = a.length - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = a[i];
+                a[i] = a[j];
+                a[j] = x;
+            }
+            return a;
+        }
+
+        function processData(allText) {
+            var record_num = 5;  // or however many elements there are in each row
+            var allTextLines = allText.split(/\r\n|\n/);
+            var entries = allTextLines[0].split(',');
+            var lines = [];
+            
+        }
+        $(document).ready(function(){
+            jQuery.get('words.csv', function(data) {
+                var l = data.split(/\r\n|\n/);
+                var r = Math.floor(Math.random()*500);
+                var e = l[r].split(',');
+
+                $('#person').text(e[0]);
+                $('#object').text(e[1]);
+                $('#action').text(e[2]);
+                $('#hard').text(e[3]);
+                $('#pop').text(e[4]);
+
+                r = Math.floor(Math.random()*500);
+                e = l[r].split(',');
+
+                $('#person2').text(e[0]);
+                $('#object2').text(e[1]);
+                $('#action2').text(e[2]);
+                $('#hard2').text(e[3]);
+                $('#pop2').text(e[4]);
+            });
+        });
+    </script>
+  </body>
+</html>
