@@ -11,6 +11,7 @@
 * (7/jun/2019) Font style matching faction mats
 * (7/jun/2019) Added: Card order buttons selector. Thank you, [mimhoff](https://boardgamegeek.com/article/32160392#32160392).
 * (8/jun/2019) Selecting or randomizing Eyrie Leaders stablish Viziers.
+* (8/jun/2019) Faction tabs are sortable now! Like the Decree cards!
 
 ## Changes:
 * Standarized format (numbers, item, rule and element names)
