@@ -1,13 +1,15 @@
-# App for ROOT: Better Bot Project
+# App for ROOT: [Better Bot Project](https://boardgamegeek.com/filepage/170084/root-better-bot-project)
 
 ## Features:
 * Update rules by choosing Difficulty and Traits
 * Change Clearing Order between Forest and Winter
 * Turn phases can be collapsed for optmize space
 * Starting position and starting buildings randomly generated (as a suggestion)
-* (7/jun/2019) Electric Eyrie Alternative Bot added
-* (7/jun/2019) Buttons added to item counter
-* (7/jun/2019) Background color added in Turn and font updated
+* (7/jun/2019) Added: Electric Eyrie Alternative Bot
+* (7/jun/2019) Added: Buttons Available items
+* (7/jun/2019) Added: Background color in Turn
+* (7/jun/2019) Font style matching faction mats
+* (/jun/2019) Added: Card order buttons selector. Thank you, [mimhoff](https://boardgamegeek.com/article/32160392#32160392).
 
 ## Changes:
 * Standarized format (numbers, item, rule and element names)
@@ -16,5 +18,4 @@
 * Images for tokens, clearing types and scoring Victory Points
 * Buttons for adding Items
 
-I will add the other bots, but forn now this works for me and my party. 
-Anyway, if you use it, please let me know any suggestions.
+Let me know any suggestions.
