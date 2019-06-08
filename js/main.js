@@ -89,6 +89,7 @@ $(document).ready(function(){
         $('.orderBird').hide();
     });
     $('#orderBirdMM').click(function(){
+        $('.orderMM').text('bird');
         $('.orderBird').show();
         $('.noOrderBird').hide();
     });
