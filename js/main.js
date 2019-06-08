@@ -29,6 +29,7 @@ $(document).ready(function(){
 
     $('.winterImage').hide();
     $('.tabs').tabs();
+    $('.tabsEE').tabs();
     $('.tab').click(function(){
         if ($(this).hasClass('botTab')) {
             switch ($(this).attr('id')) {
@@ -81,12 +82,22 @@ $(document).ready(function(){
         }
     });
 
+    $('.orderBird').hide();
+    $('.orderMMButton').click(function(){
+        $('.orderMM').text($(this).attr('suit'));
+        $('.noOrderBird').show();
+        $('.orderBird').hide();
+    });
+    $('#orderBirdMM').click(function(){
+        $('.orderBird').show();
+        $('.noOrderBird').hide();
+    });
+
     $('.leaderRule').hide();
     $('#nocharismatic').show();
     $('#randomLeader')
     .click(function(){
         r = Math.floor(Math.random()*4) + 1;
-        console.log(r);
         $('#currentLeader').val(r);
         $('#currentLeader').formSelect();
         $('.leaderRule').hide();

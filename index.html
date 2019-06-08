@@ -360,9 +360,10 @@
                             <ol>
                                 <li>
                                     <b>Reveal</b> the top card of the deck as order card.
-                                    <br>Card<a id="orderFoxMM" class="btn-small red">Fox</a>
-                                    <a id="orderBunnyMM" class="btn-small yellow">Bunny</a>
-                                    <a id="orderMouseMM" class="btn-small orange">Mouse</a>
+                                    <br>Card<a class="orderMMButton btn-small red black-text" suit="fox">Fox</a>
+                                    <a class="orderMMButton btn-small yellow black-text" suit="bunny">Bunny</a>
+                                    <a class="orderMMButton btn-small orange black-text" suit="mouse">Mouse</a>
+                                    <a id="orderBirdMM" class="btn-small blue black-text">Bird</a>
                                 </li>
                                 <li>
                                     <b>Craft</b> order card for +1 if it shows an available item.
@@ -377,19 +378,19 @@
                         <div class="collapsible-body"> 
                             <ol>
                                 <li>
-                                    <b>Battle</b> in <span class="orderMM"></span> clearings.
+                                    <b>Battle</b> in <span class="orderMM">matching order card</span> clearings.
                                 </li>
-                                <li><span id="easyMM"><b>Recruit</b> 3 warriors evenly spread across <span></span> clearings you rule. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 1 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
-                                    <span id="normalMM"><b>Recruit</b> 4 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in each of the 2 clearings you rule with lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
-                                    <span id="challengingMM"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 3 warriors in the clearing you rule with lowest priority and 2 warriors in the clearing with the the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
-                                    <span id="hardMM"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 3 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
+                                <li><span id="easyMM"><b>Recruit</b> <span class="noOrderBird"> 3 warriors evenly spread across <span class="orderMM">matching order card</span> clearings you rule. </span><span class="orderBird">2 warriors in the clearing you rule with lowest priority and 1 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span> <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small></span>
+                                    <span id="normalMM"><b>Recruit</b> <span class="noOrderBird"> 4 warriors evenly spread across <span class="orderMM">matching order card</span> clearings you rule. </span><span class="orderBird">2 warriors in each of the 2 clearings you rule with lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span> <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small></span>
+                                    <span id="challengingMM"><b>Recruit</b> <span class="noOrderBird"> 5 warriors evenly spread across <span class="orderMM">matching order card</span> clearings you rule. </span><span class="orderBird">3 warriors in the clearing you rule with lowest priority and 2 warriors in the clearing with the the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span> <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small></span>
+                                    <span id="hardMM"><b>Recruit</b> <span class="noOrderBird"> 5 warriors evenly spread across <span class="orderMM">matching order card</span> clearings you rule. </span><span class="orderBird">2 warriors in the clearing you rule with lowest priority and 3 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span> <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small></span>
                                 </li>
                                 <li>
-                                    <b>Build</b> 1 building matching order card in a clearing you rule. <br>
+                                    <b>Build</b> 1 building in a <span class="orderMM">matching order card</span> clearing you rule.<br>
                                     Bird suit: Place building type with most pieces already on the board. <small>If tied, prioritize in this order: Fox, Bunny, Mouse. Clearing with most of your warriors first, then clearing priority.</small>
                                 </li>
                                 <li>
-                                    <b>Move</b> all but 3 of your warriors from clearings matching order card. <br>
+                                    <b>Move</b> all but 3 of your warriors from <span class="orderMM">matching order card</span> clearings. <br>
                                     Bird suit: After completing all moves, battle in all destination clearings. <small>Destination is adjacent clearing with most enemies pieces first, then highest clearing priority.</small>
                                     <br><span id="blitz">Select the highest priority clearing you rule without any enemy pieces. Move all but 1 warrior from the clearing and battle in the destination if opponents are present.</span>
                                 </li>
@@ -405,7 +406,7 @@
                             <h6>Evening</h6>
                         </div>
                         <div class="collapsible-body">
-                            <p><b>Score</b> + 1 for each building on the board matching the current order card (bird scores single most). Then discard order card(s). <span id="hardExtraMM"><br> Score +1 per player.</span></p>
+                            <p><b>Score</b> + 1 for each <span class="orderBird">single most</span> building on the board matching <span class="orderBird">bird</span><span class="orderMM noOrderBird">matching order card</span> clearings. Then discard order card(s). <span id="hardExtraMM"><br> Score +1 per player.</span></p>
                         </div>
                     </li>
                 </ul>
@@ -419,9 +420,9 @@
                         <li>Pick a Charismatic Leader at random. <small>Randomly selected: <span id="startingLeader"></span> Leader.</small></li>
                     </ol>
                     <h6>Difficulty</h6>
-                    <ul class="tabs">
-                        <li class="tab col eeDifTab"><a class="active" href="#easyEE">Easy</a></li>
-                        <li class="tab col eeDifTab"><a href="#normalEE">Normal</a></li>
+                    <ul class="tabs tabsEE">
+                        <li class="tab col eeDifTab"><a href="#easyEE">Easy</a></li>
+                        <li class="tab col eeDifTab"><a class="active" href="#normalEE">Normal</a></li>
                         <li class="tab col eeDifTab"><a href="#challengingEE">Challenging</a></li>
                         <li id="hardTabEE" class="tab col eeDifTab"><a href="#hardEE">Nightmare</a></li>
                     </ul>
