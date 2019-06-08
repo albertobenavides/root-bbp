@@ -8,6 +8,7 @@ function shuffle(a) {
     }
     return a;
 }
+
 $(document).ready(function(){
     var clearings = ['Top left', 'Top right', 'Bottom left', 'Bottom right'];
     var r = Math.floor(Math.random()*4);
@@ -94,10 +95,16 @@ $(document).ready(function(){
         $('.noOrderBird').hide();
     });
 
+    
+    $('#vizier1').hide();
+    $('#vizier2').hide();
     $('.leaderRule').hide();
     $('#nocharismatic').show();
     $('#randomLeader')
     .click(function(){
+        $('#vizier1').show();
+        $('#vizier2').show();
+
         r = Math.floor(Math.random()*4) + 1;
         $('#currentLeader').val(r);
         $('#currentLeader').formSelect();
@@ -106,37 +113,56 @@ $(document).ready(function(){
         switch (r) {
             case 1:
                 $('#despot').show();
+                $('#recruit').append($('#vizier1'));
+                $('#build').append($('#vizier2'));
                 break;
             case 2:
                 $('#charismatic').show();
                 $('#nocharismatic').hide();
+                $('#move').append($('#vizier1'));
+                $('#build').append($('#vizier2'));
                 break;
             case 3:
                 $('#builder').show();
+                $('#recruit').append($('#vizier1'));
+                $('#move').append($('#vizier2'));
                 break;
             case 4:
                 $('#commander').show();
+                $('#move').append($('#vizier1'));
+                $('#battle').append($('#vizier2'));
                 break;
                         
             default:
                 break;
         }
-    }).change(function(){
+    });
+    $('#currentLeader').change(function(){
+        $('#vizier1').show();
+        $('#vizier2').show();
         $('.leaderRule').hide();
         $('#nocharismatic').show();
         switch ($('#currentLeader').val()) {
-            case 1:
+            case '1':
                 $('#despot').show();
+                $('#recruit').append($('#vizier1'));
+                $('#build').append($('#vizier2'));
                 break;
-            case 2:
+            case '2':
                 $('#charismatic').show();
                 $('#nocharismatic').hide();
+                $('#move').append($('#vizier1'));
+                $('#build').append($('#vizier2'));
                 break;
-            case 3:
+            case '3':
                 $('#builder').show();
+                $('#recruit').append($('#vizier1'));
+                $('#move').append($('#vizier2'));
                 break;
-            case 4:
+            case '4':
                 $('#commander').show();
+                $('#move').append($('#vizier1'));
+                $('#battle').append($('#vizier2'));
                 break;
                         
             default:
@@ -215,7 +241,8 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
     $( ".sortable" ).sortable({
-        connectWith: '.sortable'
+        connectWith: '.sortable',
+        cancel: '#vizier1, #vizier2'
     });
     $( ".sortable2" ).sortable();
 });
