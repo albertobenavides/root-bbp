@@ -9,7 +9,8 @@
 * (7/jun/2019) Added: Buttons Available items
 * (7/jun/2019) Added: Background color in Turn
 * (7/jun/2019) Font style matching faction mats
-* (/jun/2019) Added: Card order buttons selector. Thank you, [mimhoff](https://boardgamegeek.com/article/32160392#32160392).
+* (7/jun/2019) Added: Card order buttons selector. Thank you, [mimhoff](https://boardgamegeek.com/article/32160392#32160392).
+* (8/jun/2019) Selecting or randomizing Eyrie Leaders stablish Viziers.
 
 ## Changes:
 * Standarized format (numbers, item, rule and element names)
