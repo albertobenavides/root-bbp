@@ -30,20 +30,37 @@ $(document).ready(function(){
     $('.winterImage').hide();
     $('.tabs').tabs();
     $('.tab').click(function(){
-        console.log($(this).attr('id'));   
-        if($(this).attr('id', 'hardTab')){
-            $('#hardExtra').show();
-        } else{
-            $('#hardExtra').hide();
+        if ($(this).hasClass('botTab')) {
+            switch ($(this).attr('id')) {
+                case 'mmTab':
+                    $('body').css('background-color', 'orange');
+                    break;
+                case 'eeTab':
+                    $('body').css('background-color', '#2196f3');
+                    break;
+            
+                default:
+                    break;
+            }
         }
 
-        if($(this).attr('id', 'hardTabEE')){
-            $('#hardExtraEE').show();
-        } else{
-            $('#hardExtraEE').hide();
+        if ($(this).hasClass('mmDifTab')) {
+            if($(this).attr('id') == 'hardTabMM'){
+                $('#hardExtraMM').show();
+            } else{
+                $('#hardExtraMM').hide();
+            }
         }
+        
+        if ($(this).hasClass('eeDifTab')) {
+            if($(this).attr('id') == 'hardTabEE'){
+                $('#hardExtraEE').show();
+            } else{
+                $('#hardExtraEE').hide();
+            }
+        }
+
         if($(this).hasClass('forestTab')){
-            $('.forestTab').select();
             $('.forestImage').show();
             $('.winterImage').hide();
         }
@@ -57,14 +74,124 @@ $(document).ready(function(){
         var t = $(this).val();
         if($(this).is(":checked")) {
             $('#' + t).show();
+            $('#no' + t).hide();
         } else {
             $('#' + t).hide();
+            $('#no' + t).show();
         }
     });
+
+    $('.leaderRule').hide();
+    $('#nocharismatic').show();
+    $('#randomLeader')
+    .click(function(){
+        r = Math.floor(Math.random()*4) + 1;
+        console.log(r);
+        $('#currentLeader').val(r);
+        $('#currentLeader').formSelect();
+        $('.leaderRule').hide();
+        $('#nocharismatic').show();
+        switch (r) {
+            case 1:
+                $('#despot').show();
+                break;
+            case 2:
+                $('#charismatic').show();
+                $('#nocharismatic').hide();
+                break;
+            case 3:
+                $('#builder').show();
+                break;
+            case 4:
+                $('#commander').show();
+                break;
+                        
+            default:
+                break;
+        }
+    }).change(function(){
+        $('.leaderRule').hide();
+        $('#nocharismatic').show();
+        switch ($('#currentLeader').val()) {
+            case 1:
+                $('#despot').show();
+                break;
+            case 2:
+                $('#charismatic').show();
+                $('#nocharismatic').hide();
+                break;
+            case 3:
+                $('#builder').show();
+                break;
+            case 4:
+                $('#commander').show();
+                break;
+                        
+            default:
+                break;
+        }
+    });
+
+    $('#recruitFox').click(function(){
+        $('#recruit').prepend('<span onclick="$(this).remove()"><a class="btn-small red"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#recruitBunny').click(function(){
+        $('#recruit').prepend('<span onclick="$(this).remove()"><a class="btn-small yellow"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#recruitMouse').click(function(){
+        $('#recruit').prepend('<span onclick="$(this).remove()"><a class="btn-small orange"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#recruitBird').click(function(){
+        $('#recruit').prepend('<span onclick="$(this).remove()"><a class="btn-small blue"><i class="material-icons">remove</i></a><br></span>');
+    });
+
+    $('#moveFox').click(function(){
+        $('#move').prepend('<span onclick="$(this).remove()"><a class="btn-small red"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#moveBunny').click(function(){
+        $('#move').prepend('<span onclick="$(this).remove()"><a class="btn-small yellow"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#moveMouse').click(function(){
+        $('#move').prepend('<span onclick="$(this).remove()"><a class="btn-small orange"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#moveBird').click(function(){
+        $('#move').prepend('<span onclick="$(this).remove()"><a class="btn-small blue"><i class="material-icons">remove</i></a><br></span>');
+    });
+
+    $('#battleFox').click(function(){
+        $('#battle').prepend('<span onclick="$(this).remove()"><a class="btn-small red"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#battleBunny').click(function(){
+        $('#battle').prepend('<span onclick="$(this).remove()"><a class="btn-small yellow"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#battleMouse').click(function(){
+        $('#battle').prepend('<span onclick="$(this).remove()"><a class="btn-small orange"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#battleBird').click(function(){
+        $('#battle').prepend('<span onclick="$(this).remove()"><a class="btn-small blue"><i class="material-icons">remove</i></a><br></span>');
+    });
+
+    $('#buildFox').click(function(){
+        $('#build').prepend('<span onclick="$(this).remove()"><a class="btn-small red"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#buildBunny').click(function(){
+        $('#build').prepend('<span onclick="$(this).remove()"><a class="btn-small yellow"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#buildMouse').click(function(){
+        $('#build').prepend('<span onclick="$(this).remove()"><a class="btn-small orange"><i class="material-icons">remove</i></a><br></span>');
+    });
+    $('#buildBird').click(function(){
+        $('#build').prepend('<span onclick="$(this).remove()"><a class="btn-small blue"><i class="material-icons">remove</i></a><br></span>');
+    });
+
     $("#blitz").hide();
     $("#ironwill").hide();
     $("#hospitals").hide();
     $("#fortified").hide();
+    $("#relentless").hide();
+    $("#swoop").hide();
+    $("#nobility").hide();
+    $("#wartax").hide();
 
     $('.collapsible').collapsible({
         accordion: false
@@ -74,6 +201,11 @@ $(document).ready(function(){
     });
     $('.fixed-action-btn').floatingActionButton();
     $('.sidenav').sidenav();
+    $('select').formSelect();
+    $( ".sortable" ).sortable({
+        connectWith: '.sortable'
+    });
+    $( ".sortable2" ).sortable();
 });
 
 function reload(){
