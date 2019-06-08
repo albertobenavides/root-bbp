@@ -351,14 +351,19 @@
                 </div>
 
                 <ul class="collapsible collection with-header">
-                        <li class="collection-header"><h5>Turn Order</h5></li>
+                    <li class="collection-header"><h5>Turn Order</h5></li>
                     <li class="active amber lighten-5">
                         <div class="collapsible-header white-text amber"> 
                             <h6>Birdsong</h6>
                         </div>
                         <div class="collapsible-body"> 
                             <ol>
-                                <li><b>Reveal</b> the top card of the deck as order card.</li>
+                                <li>
+                                    <b>Reveal</b> the top card of the deck as order card.
+                                    <br>Card<a id="orderFoxMM" class="btn-small red">Fox</a>
+                                    <a id="orderBunnyMM" class="btn-small yellow">Bunny</a>
+                                    <a id="orderMouseMM" class="btn-small orange">Mouse</a>
+                                </li>
                                 <li>
                                     <b>Craft</b> order card for +1 if it shows an available item.
                                 </li>
@@ -372,9 +377,9 @@
                         <div class="collapsible-body"> 
                             <ol>
                                 <li>
-                                    <b>Battle</b> in clearings matching order card.
+                                    <b>Battle</b> in <span class="orderMM"></span> clearings.
                                 </li>
-                                <li><span id="easyMM"><b>Recruit</b> 3 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 1 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
+                                <li><span id="easyMM"><b>Recruit</b> 3 warriors evenly spread across <span></span> clearings you rule. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 1 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
                                     <span id="normalMM"><b>Recruit</b> 4 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in each of the 2 clearings you rule with lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
                                     <span id="challengingMM"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 3 warriors in the clearing you rule with lowest priority and 2 warriors in the clearing with the the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
                                     <span id="hardMM"><b>Recruit</b> 5 warriors evenly spread across clearings you rule matching order card. <small>Defender is the player with most pieces, then victory points, then highest priority setup.</small> <br> Bird suit: Instead recruit 2 warriors in the clearing you rule with lowest priority and 3 warrior in the clearing with the 2<sup>nd</sup> lowest priority.<br>Gain +1 for every 2 warriors that could not be recruited.</span>
@@ -415,8 +420,8 @@
                     </ol>
                     <h6>Difficulty</h6>
                     <ul class="tabs">
-                        <li class="tab col eeDifTab"><a href="#easyEE">Easy</a></li>
-                        <li class="tab col eeDifTab"><a class="active" href="#normalEE">Normal</a></li>
+                        <li class="tab col eeDifTab"><a class="active" href="#easyEE">Easy</a></li>
+                        <li class="tab col eeDifTab"><a href="#normalEE">Normal</a></li>
                         <li class="tab col eeDifTab"><a href="#challengingEE">Challenging</a></li>
                         <li id="hardTabEE" class="tab col eeDifTab"><a href="#hardEE">Nightmare</a></li>
                     </ul>
