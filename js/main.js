@@ -86,11 +86,25 @@ $(document).ready(function(){
     $('.orderBird').hide();
     $('.orderMMButton').click(function(){
         $('.orderMM').text($(this).attr('suit'));
+        switch ($(this).attr('suit')) {
+            case 'fox':
+                $('.orderMMBuilding').text('sawmill');
+                break;
+            case 'bunny':
+                $('.orderMMBuilding').text('workshop');
+                break;
+            case 'mouse':
+                $('.orderMMBuilding').text('recruiter');
+                break;
+            default:
+                break;
+        }
         $('.noOrderBird').show();
         $('.orderBird').hide();
     });
     $('#orderBirdMM').click(function(){
-        $('.orderMM').text('bird');
+        $('.orderMM').text('any');
+        $('.birdAll').text('all');
         $('.orderBird').show();
         $('.noOrderBird').hide();
     });
@@ -244,7 +258,6 @@ $(document).ready(function(){
         connectWith: '.sortable',
         cancel: '#vizier1, #vizier2'
     });
-    $( ".sortable2" ).sortable();
 });
 
 function reload(){
