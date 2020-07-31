@@ -15,27 +15,27 @@
         <div class="container">
             <table>
                     <tr class="blue">
-                        <th>Persona, Lugar, Animal</th>
+                        <td>Persona, Lugar, Animal</td>
                         <td id="person"></td>
                         <td id="person2"></td>
                     </tr>
                     <tr class="yellow">
-                        <th>Objeto</th>
+                        <td>Objeto</td>
                         <td id="object"></td>
                         <td id="object2"></td>
                     </tr>
                     <tr class="orange">
-                        <th>Acción</th>
+                        <td>Acción</td>
                         <td id="action"></td>
                         <td id="action2"></td>
                     </tr>
                     <tr class="green">
-                        <th>Difícil</th>
+                        <td>Difícil</td>
                         <td id="hard"></td>
                         <td id="hard2"></td>
                     </tr>
                     <tr class="red">
-                        <th>Cultura Popular</th>
+                        <td>Cultura Popular</td>
                         <td id="pop"></td>
                         <td id="pop2"></td>
                     </tr>
@@ -62,8 +62,8 @@
             var allTextLines = allText.split(/\r\n|\n/);
             var entries = allTextLines[0].split(',');
             var lines = [];
-            
         }
+
         $(document).ready(function(){
             jQuery.get('words.csv', function(data) {
                 var l = data.split(/\r\n|\n/);
@@ -84,6 +84,28 @@
                 $('#action2').text(e[2]);
                 $('#hard2').text(e[3]);
                 $('#pop2').text(e[4]);
+
+                r = Math.floor(Math.random()*6);
+
+                switch (r) {
+                    case 1:
+                        $('.blue').css('font-weight', 'bold');
+                        break;
+                    case 2:
+                        $('.yellow').css('font-weight', 'bold');
+                        break;
+                    case 3:
+                        $('.orange').css('font-weight', 'bold');
+                        break;
+                    case 4:
+                        $('.green').css('font-weight', 'bold');
+                        break;
+                    case 5:
+                        $('.red').css('font-weight', 'bold');
+                        break;
+                    default:
+                        break;
+                }
             });
         });
     </script>
